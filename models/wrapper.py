@@ -27,6 +27,11 @@ class ModelWrapper(nn.Module):
             from .resnet import resnet50
 
             self._net = resnet50(num_classes=opt.num_classes)
+        
+        elif opt.model_name == "mobilenetv2":
+            from .mobilenetv2 import MobileNetV2
+
+            self._net = MobileNetV2(num_classes=opt.num_classes)
 
         self.optimizer = optim.SGD(
             self._net.parameters(),
